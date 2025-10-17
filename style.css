@@ -1,0 +1,264 @@
+/* 🌿 Digital Habit Garden - Enhanced Version */
+
+/* ===== Body & Header ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #d9f7e7, #b8e6d4);
+  text-align: center;
+  color: #2b4a3f;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+/* ===== Buttons ===== */
+.btn, button {
+  display: inline-block;
+  background-color: #2b7a0b;
+  color: white;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 3px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, button:hover {
+  background-color: #3e9a15;
+  transform: scale(1.05);
+}
+
+/* ===== Intro ===== */
+.intro {
+  margin-top: 60px;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #345c49;
+}
+
+/* ===== Habit Section ===== */
+.habit-section {
+  background: #e9f9ef;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.habit-section h2 {
+  margin-bottom: 15px;
+  color: #2b4a3f;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #3e9a15;
+  box-shadow: 0 0 5px #3e9a15;
+}
+
+/* ===== Habit List ===== */
+#habitList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#habitList li {
+  background-color: #ffffff;
+  margin: 10px auto;
+  padding: 12px 15px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.habit-name {
+  flex: 1;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* Habit action buttons */
+.habit-actions button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Done button when completed */
+.habit-actions button.done {
+  background-color: #8de28d; /* light green */
+  color: #fff;
+}
+
+.habit-actions button:hover {
+  opacity: 0.85;
+}
+/* Completed habit card */
+#habitList li.completed {
+  background-color: #d4f5d0; /* light green background */
+  color: #2b4a3f;
+  text-decoration: line-through;
+  transition: background-color 0.3s ease;
+}
+
+/* Completed habit style */
+#habitList li.completed .habit-name {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* ===== Garden Page ===== */
+.garden-container {
+  margin: 60px auto;
+  height: 300px;
+  width: 150px;
+  position: relative;
+}
+
+/* Plant */
+.plant {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 1s ease;
+}
+
+/* Stem */
+.stem {
+  width: 10px;
+  height: 60px;
+  background-color: #3e8e41;
+  margin: 0 auto;
+  border-radius: 5px;
+  transition: height 1s ease;
+}
+
+/* Leaves */
+.leaf {
+  width: 40px;
+  height: 20px;
+  background-color: #4caf50;
+  position: absolute;
+  border-radius: 50%;
+  top: 20px;
+  transition: all 0.5s ease;
+}
+
+.leaf.left { left: -35px; transform: rotate(-25deg); }
+.leaf.right { right: -35px; transform: rotate(25deg); }
+
+/* Flower (more beautiful) */
+.flower {
+  width: 30px;
+  height: 30px;
+  background-color: #ff7eb9;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px; /* move flower above stem */
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  transition: transform 1s ease;
+}
+
+.grow-5 .flower {
+  transform: translateX(-50%) scale(1);
+}
+
+
+/* Flower petals */
+.flower span {
+  width: 20px;
+  height: 20px;
+  background-color: #ff7eb9;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.flower span:nth-child(1) { top: -10px; left: 50%; transform: translateX(-50%); }
+.flower span:nth-child(2) { top: 5px; left: -10px; }
+.flower span:nth-child(3) { top: 5px; left: 10px; }
+.flower span:nth-child(4) { top: -5px; left: -15px; }
+.flower span:nth-child(5) { top: -5px; left: 15px; }
+
+/* ===== Growth Stages ===== */
+.grow-1 .stem { height: 80px; }
+.grow-2 .stem { height: 100px; }
+.grow-3 .stem { height: 130px; }
+.grow-4 .stem { height: 160px; }
+.grow-5 .stem { height: 180px; }
+.grow-5 .flower { transform: translateX(-50%) scale(1); }
+
+/* ===== Progress Text ===== */
+#progressText {
+  font-size: 1.1rem;
+  color: #275a3b;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 80px;
+  font-size: 0.9rem;
+  color: #305c44;
+  padding-bottom: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .habit-section, #habitList li {
+    width: 95%;
+  }
+
+  .btn, button {
+    width: 80%;
+  }
+}
